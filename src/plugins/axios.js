@@ -1,16 +1,9 @@
 import Vue from "vue";
 import axios from "axios";
 
-const guest = axios.create({
-  baseURL: "http://localhost/user",
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-    "X-Requested-With": "XMLHttpRequest",
-  },
-});
 
 const api = axios.create({
-  baseURL: "http://localhost/CRUD-ci-app/",
+  baseURL: "http://localhost/crud-app-backend/",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
     "X-Requested-With": "XMLHttpRequest",
@@ -39,7 +32,6 @@ api.interceptors.response.use(
   }
 );
 
-Vue.prototype.$guest = guest;
 Vue.prototype.$api = api;
 
-export { guest, api };
+export { api };

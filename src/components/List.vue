@@ -27,6 +27,12 @@
           <strong>Loading...</strong>
         </div>
       </template>
+      <template slot="bottom-row" >
+        <td colspan="6">
+          <span class="no-data">No Data Available</span>
+        </td>
+      </template>
+
     </b-table>
     <div class="row justify-content-between" v-if="pagination">
       <div class="col-3">
@@ -95,9 +101,8 @@ export default {
             this.last_index = (this.perPage * page);
             this.prev_last_index = this.last_index-this.perPage;
           })
-          .catch(err => {
+          .catch(() => {
             this.isLoading = false;
-            console.log(err.response);
           });
     },
 
@@ -174,4 +179,8 @@ export default {
 </script>
 
 <style>
+.no-data {
+  font-size: 2rem;
+  opacity: 0.4;
+}
 </style>
